@@ -52,10 +52,10 @@ description: |
 > 你需要联网获取信息。使用以下工具：
 > - **WebSearch**：用于搜索发现信息来源，获取摘要和关键词结果
 > - **WebFetch**：当已知具体URL时，用于从页面定向提取内容
-> - 如果用户环境中安装了 web-access skill（检查路径 `/mnt/.claude/skills/web-access/SKILL.md` 是否存在），优先加载它并遵循其指引，它提供更强的浏览器CDP能力
+> - 如果用户环境中安装了 web-access skill，优先加载它并遵循其指引，它提供更强的浏览器CDP能力
 > - 搜索策略：先用WebSearch发现信息来源和线索，找到具体URL后用WebFetch深入提取
 > - 多次搜索、多个关键词组合，不要只搜一次就放弃
-> - 一手来源优于二手来源：官方博客 > 权威媒体原创报道 > 转载/聚合
+> - 一手来源优于二手来源：英文信息源 >  中文信息源，官方博客 > 权威媒体原创报道 > 转载/聚合
 > - **学术类研究对象必查arxiv**：如果研究对象涉及学术概念、算法、AI模型、技术范式等，必须通过arxiv API获取相关论文。调用方式：`curl -s "https://export.arxiv.org/api/query?search_query=all:关键词1+AND+all:关键词2&max_results=10"`，或用WebFetch访问同一URL。返回XML格式，包含标题、作者、摘要、发布日期、PDF链接。可按需调整关键词组合和结果数量。找到关键论文后，用WebFetch读取论文页面（`https://arxiv.org/abs/论文ID`）获取更多细节。
 
 prompt要描述目标（"获取""调研""了解"），不要用暗示具体手段的动词（"搜索""爬取"），让子Agent自主判断最佳获取方式。
